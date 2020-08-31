@@ -1,4 +1,4 @@
-Grading at Mon Aug 31 22:05:04 UTC 2020
+Grading at Mon Aug 31 22:05:30 UTC 2020
 Attempting to compile rectangle.c
 rectangle.c: In function ‘intersection’:
 rectangle.c:44:13: error: unused variable ‘r’ [-Werror=unused-variable]
