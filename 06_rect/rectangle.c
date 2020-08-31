@@ -16,15 +16,13 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
-struct rect{
+typedef struct {
   int x;
   int y;
-  int r;
   int width;
   int height;
-};
+} rectangle;
 
-typedef struct  rect rectangle;
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
@@ -37,12 +35,11 @@ rectangle canonicalize(rectangle r) {
     r.y += r.height;
     r.height = - r.height;
   }
+
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
-  rectangle r;
-
   const rectangle EMPTY = {0, 0, 0, 0};
 
   r1 = canonicalize(r1);
@@ -68,8 +65,7 @@ rectangle intersection(rectangle r1, rectangle r2) {
   };
 
   return ret;
-  
-  return r1;
+
 }
 
 //You should not need to modify any code below this line
@@ -79,8 +75,8 @@ void printRectangle(rectangle r) {
     printf("<empty>\n");
   }
   else {
-    printf("(%d,%d) to (%d,%d)\n", r.x, r.y, 
-	                           r.x + r.width, r.y + r.height);
+    printf("(%d,%d) to (%d,%d)\n", r.x, r.y,
+	   r.x + r.width, r.y + r.height);
   }
 }
 
@@ -103,7 +99,7 @@ int main (void) {
   r2.height = -7;
   printf("r2 is ");
   printRectangle(r2);
-  
+
   r3.x = -2;
   r3.y = 7;
   r3.width = 7;
@@ -126,7 +122,7 @@ int main (void) {
   i = intersection(r1,r2);
   printf("intersection(r1,r2): ");
   printRectangle(i);
-  
+
   i = intersection(r1,r3);
   printf("intersection(r1,r3): ");
   printRectangle(i);
@@ -143,7 +139,7 @@ int main (void) {
   i = intersection(r2,r2);
   printf("intersection(r2,r2): ");
   printRectangle(i);
-  
+
   i = intersection(r2,r3);
   printf("intersection(r2,r3): ");
   printRectangle(i);
@@ -160,7 +156,7 @@ int main (void) {
   i = intersection(r3,r2);
   printf("intersection(r3,r2): ");
   printRectangle(i);
-  
+
   i = intersection(r3,r3);
   printf("intersection(r3,r3): ");
   printRectangle(i);
@@ -177,7 +173,7 @@ int main (void) {
   i = intersection(r4,r2);
   printf("intersection(r4,r2): ");
   printRectangle(i);
-  
+
   i = intersection(r4,r3);
   printf("intersection(r4,r3): ");
   printRectangle(i);
