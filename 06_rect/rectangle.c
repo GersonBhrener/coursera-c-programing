@@ -28,39 +28,46 @@ typedef struct  rect rectangle;
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
-  if (r.width<0){
-    r.width = (-1)*r.width;
-    r.x = r.x - r.width;
+  if (r.width < 0) {
+    r.x += r.width;
+    r.width = - r.width;
   }
 
-  if (r.height<0){
-    r.height = (-1)*r.height;
-    r.y = r.y - r.height;
+  if (r.height < 0) {
+    r.y += r.height;
+    r.height = - r.height;
   }
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
+  rectangle r;
+
+  const rectangle EMPTY = {0, 0, 0, 0};
+
   r1 = canonicalize(r1);
   r2 = canonicalize(r2);
 
-  if ((r1.x > r2.x + r2.width) || (r1.x + r1.width < r2.x) || (r1.y > r2.y + r2.height) || (r1.y + r1.height < r2.y)){
-
-    r1.width = 0;
-    r1.height = 0;
+  int x_left = max(r1.x, r2.x);
+  int x_right = min(r1.x + r1.width, r2.x + r2.width);
+  if (x_left > x_right) {
+    return EMPTY;
   }
 
-  else{
-
-    int right = min(r1.x + r1.width, r2.x+r2.width);
-    int top = min (r1.y + r2.height, r2.y + r2.height);
-    r1.x = max(r1.x, r2.x);
-    r1.y = max(r1.y, r2.y);
-    r1.width = right - r1.x;
-    r1.height = top - r1.y;
+  int y_bottom = max(r1.y, r2.y);
+  int y_top = min(r1.y + r1.height, r2.y + r2.height);
+  if (y_bottom > y_top) {
+    return EMPTY;
   }
 
+  rectangle ret = {
+    x_left,
+    y_bottom,
+    x_right - x_left,
+        y_top - y_bottom
+  };
 
+  return ret;
   
   return r1;
 }
