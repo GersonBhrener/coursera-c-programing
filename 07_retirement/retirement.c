@@ -3,8 +3,8 @@
 
 struct _retire_info{
 
-  unsigned int months;
-  double contribuition;
+  int months;
+  double contribution;
   double rate_of_return;
 };
 
