@@ -20,7 +20,7 @@ void print_months_balance (int months, double balance){
 double total (double balance, retire_info status ){
 
   balance += balance*status.rate_of_return;
-  balance += status.contribuition;
+  balance += status.contribution;
 
   return balance;
 }
@@ -56,12 +56,12 @@ int main (void){
 
   //estrutura trabalho
   working.months = 489;
-  working.contribuition = 1000;
+  working.contribution = 1000;
   working.rate_of_return = 0.045/12;
 
   //estrutura aposentadoria
   retired.months = 384;
-  retired.contribuition = -4000;
+  retired.contribution = -4000;
   retired.rate_of_return = 0.01/12;
 
   retirement (startAge, initial, working, retired);
