@@ -66,5 +66,6 @@ int main (void){
 
   retirement (startAge, initial, working, retired);
 
+  return 0;
 
 }
