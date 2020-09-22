@@ -51,95 +51,96 @@ const char * ranking_to_string(hand_ranking_t r) {
     return "NOTHING";
     break;
 }
+}
 
 char value_letter(card_t c) {
 
   switch (c.value){
 
   case 2:
-    return "2";
+    return '2';
     break;
 
   case 3:
-    return "3";
+    return '3';
     break;
 
   case 4:
-    return "4";
+    return '4';
     break;
 
   case 5:
-    return "5";
+    return '5';
     break;
 
   case 6:
-    return "6";
+    return '6';
     break;
 
   case 7:
-    return "7";
+    return '7';
     break;
 
   case 8:
-    return "8";
+    return '8';
     break;
 
   case 9:
-    return "9";
+    return '9';
     break;
 
   case 10:
-    return "0";
+    return '0';
     break;
 
   case VALUE_JACK:
-    return "J";
+    return 'J';
     break;
 
   case VALUE_QUEEN:
-    return "Q";
+    return 'Q';
     break;
 
   case VALUE_KING:
-    return "K";
+    return 'K';
     break;
 
   case VALUE_ACE:
-    return "A";
+    return 'A';
     break;
 
   default:
-    return "?";
+    return '?';
     break;
 }
-
+}
 
 char suit_letter(card_t c) {
 
   switch (c.suit){
 
   case SPADES:
-    return "s";
+    return 's';
     break;
 
   case HEARTS:
-    return "h";
+    return 'h';
     break;
 
   case DIAMONDS:
-    return "d";
+    return 'd';
     break;
 
   case CLUBS:
-    return "c";
+    return 'c';
     break;
 
   default:
-    return "?";
+    return '?';
     break;
   
 }
-
+}
 void print_card(card_t c) {
 
   printf("%c%c", value_letter(c), suit_letter(c));
@@ -224,7 +225,7 @@ card_t card_from_letters(char value_let, char suit_let) {
   assert_card_valid(temp);
   return temp;
 }
-}
+
 
 card_t card_from_num(unsigned c) {
   card_t temp;
